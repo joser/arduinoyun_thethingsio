@@ -2,15 +2,16 @@ import sys
 import json
 import requests
 
+# Generate json with temperature and light and POST it to TheThingsIO
 def generate_request(temperature, light):
     endpoint = "https://api.thethings.io/v1/ThingWrite"
     headers = {
        'Content-type': 'application/json', 
-       'Authorization: theThingsIO-Token' : '33a2c3a662dab57b9c672bab22de295af101257f62b3d8227cfcf0efe4f23e18',
+       'Authorization: theThingsIO-Token' : 'xxxxxxxx',
        'Accept': 'application/json'}
     data = {
        "thing": {
-       "id": "1799c2e785660cae485e9f31385d857a75dc70c5ff2f49c0d35c4c3af894978b"
+       "id": "xxxxxxx"
        },
        "values": [
        {
@@ -34,6 +35,7 @@ def generate_request(temperature, light):
     print "RESPONSE : "+ str(r.status_code)
     print r.text
 
+# Get temperature and light from command line
 def main():   
 
     if len(sys.argv) != 3:
